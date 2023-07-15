@@ -1,0 +1,114 @@
+<div class="container mt-5" *ngIf="!flage && !restflage">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title text-center">{{title}}</h5>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="inputName">Name</label>
+              <input type="text" class="form-control" [(ngModel)]="users.uname" id="inputName"
+                placeholder="Enter your name" [ngModelOptions]="{standalone: true}" required>
+            </div>
+            <div class="form-group">
+              <label for="inputMobile">Mobile Number</label>
+              <input type="text" class="form-control" id="inputMobile" [(ngModel)]="users.uphone"
+                placeholder="Enter your mobile number" [ngModelOptions]="{standalone: true}" required>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail">Email</label>
+              <input type="email" class="form-control" id="inputEmail" [(ngModel)]="users.email"
+                placeholder="Enter your email" [ngModelOptions]="{standalone: true}" required>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword">Password</label>
+              <input type="password" class="form-control" id="inputPassword1" [(ngModel)]="users.password"
+                placeholder="Enter your password" [ngModelOptions]="{standalone: true}" required>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword">Confirm Password</label>
+              <input type="password" class="form-control" id="inputPassword2" [(ngModel)]="users.cpwd"
+                placeholder="Enter your confirm password" [ngModelOptions]="{standalone: true}" required>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary" (click)="submitclk()">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container mt-5" *ngIf="flage && !restflage">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title text-center">Update Details</h5>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="inputName">Name</label>
+              <input type="text" class="form-control" [(ngModel)]="usersobj.uname" id="inputName"
+                placeholder="Enter your name" [ngModelOptions]="{standalone: true}" required>
+            </div>
+            <div class="form-group">
+              <label for="inputMobile">Mobile Number</label>
+              <input type="text" class="form-control" id="inputMobile" [(ngModel)]="usersobj.uphone"
+                placeholder="Enter your mobile number" [ngModelOptions]="{standalone: true}" required>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail">Email</label>
+              <input type="email" class="form-control" id="inputEmail" [(ngModel)]="usersobj.email"
+                placeholder="Enter your email" [ngModelOptions]="{standalone: true}" required>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary" (click)="submitclk()">Update</button><button type="submit"
+                class="btn btn-primary" (click)="restpass()">Reset Password</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container mt-5" *ngIf="restflage">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title text-center">Password Reset</h5>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label >Old Password</label>
+              <input type="text" class="form-control" [(ngModel)]="repass.pwd"
+                placeholder="Enter your Password" [ngModelOptions]="{standalone: true}" required>
+            </div>
+            <div class="form-group">
+              <label>New Password</label>
+              <input type="password" class="form-control"  [(ngModel)]="repass.pwd1"
+                placeholder="Enter your password" [ngModelOptions]="{standalone: true}" required>
+            </div>
+            <div class="form-group">
+              <label>Confirm New Password</label>
+              <input type="password" class="form-control"  [(ngModel)]="repass.cpwd"
+                placeholder="Enter your confirm password" [ngModelOptions]="{standalone: true}" required>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary" (click)="restpassconfirm()">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

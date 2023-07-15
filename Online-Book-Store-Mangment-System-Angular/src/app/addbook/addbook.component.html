@@ -1,0 +1,117 @@
+<div class="container mt-5" *ngIf="!f">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title text-center">{{title}}</h5>
+                </div>
+                <div class="card-body">
+                    <form (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label for="inputBook">Book Name</label>
+                            <input type="text" class="form-control" [(ngModel)]="bk.bname" id="inputBook"
+                                placeholder="Enter book name" [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAuthorId">Author Id</label>
+                            <input type="text" class="form-control" [(ngModel)]="auth.aid"id="inputAuthorId"
+                                placeholder="Enter author id" [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPrice">Book Price</label>
+                            <input type="number" class="form-control" [(ngModel)]="bk.price" id="inputPrice"
+                                placeholder="Enter book price" [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5" *ngIf="f">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title text-center">{{title}}</h5>
+                </div>
+                <div class="card-body">
+                    <form (ngSubmit)="submiteditbook()">
+                        <div class="form-group">
+                            <label for="inputBook">Book Name</label>
+                            <input type="text" class="form-control" [(ngModel)]="bk1.bname" id="inputBook"
+                                placeholder="Enter book name" [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAuthorId">Author Id</label>
+                            <input type="text" class="form-control"  [(ngModel)]="auth1.aid"  id="inputAuthorId"
+                                placeholder="Enter author id" [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPrice">Book Price</label><label for="inputPrice">Book Price</label>
+                            <input type="number" class="form-control" [(ngModel)]="bk1.price" id="inputPrice"
+                                placeholder="Enter book price" [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary" >Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <table class="table table-striped table-dark ">
+                    <thead>
+                        <tr>
+                            <th scope="col">Author Id</th>
+                            <th scope="col">Author Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let a of aa">
+                            <td>{{a.aid}}</td>
+                            <td>{{a.aname}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </table>
+        </div>
+        <div class="col">
+            <table class="table">
+                <table class="table table-striped table-dark ">
+                    <thead>
+                        <tr>
+                            <th scope="col">Book Id</th>
+                            <th scope="col">Book Name</th>
+                            <th scope="col">Author Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let b of bb">
+                            <td>{{b.bid}}</td>
+                            <td>{{b.bname}}</td>
+                            <td>{{b.author.aname}}</td>
+                            <td>{{b.price}}</td>
+                            <td><button class="btn btn-success" (click)="editBook(b.bid)">Edit</button>
+                                <button class="btn btn-danger" (click)="deletebook(b.bid)">Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </table>
+        </div>
+    </div>
+</div>

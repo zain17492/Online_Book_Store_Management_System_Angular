@@ -1,0 +1,82 @@
+<div class="container mt-5" *ngIf="!edaut">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title text-center">{{Add}}</h5>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="inputAuthor">Author Name</label>
+              <input type="text" class="form-control" [(ngModel)]="aobj.aname" id="inputAuthor"
+                placeholder="Enter author name" [ngModelOptions]="{standalone: true}" required>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail">Email</label>
+              <input type="email" class="form-control" id="inputEmail" [(ngModel)]="aobj.aemail"
+                placeholder="Enter author email" [ngModelOptions]="{standalone: true}" required>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary" (click)="submitclk()">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5" *ngIf="edaut">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title text-center">{{Update}}</h5>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="inputUsername">Author Name</label>
+              <input type="text" class="form-control" [(ngModel)]="aobj1.aname" id="input"
+                placeholder="Enter author name" [ngModelOptions]="{standalone: true}" required>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail">Email</label>
+              <input type="email" class="form-control" id="inputEmail" [(ngModel)]="aobj1.aemail"
+                placeholder="Enter author email" [ngModelOptions]="{standalone: true}" required>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary" (click)="updateAuth()">Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="table table-striped table-dark ">
+  <thead>
+    <tr>
+      <th scope="col">Author Id</th>
+      <th scope="col">Author Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Books</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let bb of abj">
+      <td>{{bb.aid}}</td>
+      <td>{{bb.aname}}</td>
+      <td>{{bb.aemail}}</td>
+      <td *ngIf="bb.book==0">No Book</td>
+      <div *ngFor="let b of bb.book">
+        <td>{{b.bname+","}}</td>
+      </div>
+      <td><button class="btn btn-success" (click)="editauthor(bb.aid)">Edit</button><button class="btn btn-danger"
+          (click)="deleteAuthor(bb.aid)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
